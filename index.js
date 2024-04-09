@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 // TODO: Create an array of questions for user input
 inquirer
-    .createPromptModule([
+    .prompt([
         {
             type: 'input',
             message: 'What is your project title?',
@@ -38,7 +38,7 @@ inquirer
             type: 'checkbox',
             message: 'Table of Content',
             name: 'content',
-            choices: ['Installation', 'Usage', 'Credits', 'License', 'Tests'],
+            choices: ['Installation', 'Usage', 'Credits', 'License','Badges', 'Tests', 'Questions'],
         },
         {
             type: 'input',
@@ -53,7 +53,7 @@ inquirer
         {
             type: 'input',
             message: 'List your collaborators, if any, with links to their GitHub profiles.',
-            name: 'collaborators',
+            name: 'credits',
         },
         {
             type: 'checkbox',
@@ -71,13 +71,19 @@ inquirer
             message: 'Provide examples of how to run your test here.',
             name: 'tests',
         },
+        {
+            type: 'input',
+            message: 'What questions do you have.',
+            // i need a way to add  my github username and my email here under questions with instructions on how to reach me for additional questions
+            name: 'questions',
+        },
     ])
     // this was given but idk what i'm supposed to add to it..
 const questions = [];
 
 // TODO: Create a function to write README file
 function writeToFile("README.md", data, (eer)) {
-    
+    const READMETemplate = ``;
 }
 
 // TODO: Create a function to initialize app
