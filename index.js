@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -95,39 +96,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(answers) {
-    const READMETemplate = `
-    # ${answers.projectTitle}
-    ##Table of Contents
-    ${answers.content}
-    // i want it numbered
-     ## Description
-    ${answers.motivationDescription}
-    ${answers.buildDescription}
-    ${answers.problemDescription}
-    ${answers.learnDescription}
-    # Getting Started
-    ## Built With
-    ${answers.builtWith}
-    ##Prerequisites
-    ${answers.prerequisites}
-    ##Installation
-    ${answers.installation}
-    ##Usage
-    ${answers.usage}
-    ##Tests
-    ${answers.test}
-    ##Contribution
-    ${answers.credit}
-    ## License
-    ${answers.license}
-    ##Badges
-    ${answers.badges}
-    ##Contact Me
-    ${answers.username}
-    ${answers.email}
-    ##Acknowledgments
-    ${answers.acknowledgments}
-    `;
+    const READMETemplate = generateMarkdown(answers);
     fs.writeFile("README.md", READMETemplate, (err) => {
         if (err) {
             throw err;
