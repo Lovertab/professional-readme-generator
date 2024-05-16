@@ -64,7 +64,7 @@
 
 
 // Import the renderLicenseBadge function
-// const { renderLicenseBadge } = require('../utils/generateMarkdown');
+const { renderLicenseBadge } = require('../utils/generateMarkdown');
 
 // Function to generate the license badge based on the selected license
 function renderLicenseBadge(license) {
